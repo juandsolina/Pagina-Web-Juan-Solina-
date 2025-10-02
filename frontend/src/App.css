@@ -1,58 +1,289 @@
-/* Navbar estilo Amazon */
-.navbar {
+/* Reset y estilos globales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
   width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Asegurar que el App container ocupe toda la altura */
+.App {
+  min-height: 100vh;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #131921; /* Azul oscuro tipo Amazon */
-  color: white;
-  padding: 10px 20px;
-  position: fixed; /* Fijo arriba */
+  flex-direction: column;
+}
+
+/* Navbar personalizado con Bootstrap */
+.navbar {
+  background: #131921 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 1rem 0;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.nav-link {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85) !important;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #fff !important;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #00bcd4;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 80%;
+}
+
+.btn-info {
+  background: #00bcd4 !important;
+  border: none !important;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 188, 212, 0.3);
+}
+
+.btn-info:hover {
+  background: #0097a7 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 188, 212, 0.4);
+}
+
+/* Main content area */
+main {
+  flex: 1;
+  width: 100%;
+}
+
+/* Hero Carousel estilos mejorados */
+.carousel {
+  width: 100%;
+}
+
+.carousel-slide {
+  width: 100%;
+  min-height: 500px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-item:nth-child(1) .carousel-slide {
+  background: linear-gradient(135deg, #0061ff 0%, #60efff 100%);
+}
+
+.carousel-item:nth-child(2) .carousel-slide {
+  background: linear-gradient(135deg, #00d2ff 0%, #3a47d5 100%);
+}
+
+.carousel-item:nth-child(3) .carousel-slide {
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+}
+
+.carousel-slide::before {
+  content: '';
+  position: absolute;
   top: 0;
   left: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.carousel-slide h1 {
+  animation: fadeInUp 1s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.logo img {
-  width: 40px;
-  height: 40px;
+.carousel-slide p {
+  animation: fadeInUp 1s ease 0.2s backwards;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.logo h1 {
-  font-size: 20px;
-  margin: 0;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.nav-links {
-  display: flex;
-  gap: 15px;
-  list-style: none;
+/* Controles del carousel más visibles */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 0.5rem;
 }
 
-.nav-links button {
-  background: #00bcd4; /* Botón celeste */
-  border: none;
-  padding: 8px 15px;
-  border-radius: 6px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 5px;
 }
 
-.nav-links button:hover {
-  background: #0097a7;
+/* Cards con efectos hover */
+.card {
+  transition: all 0.3s ease;
+  border-radius: 12px !important;
+  overflow: hidden;
 }
 
-/* Para evitar que el contenido quede oculto debajo del navbar */
-main {
-  padding: 120px 20px 20px; 
-  text-align: center;
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-body {
+  transition: background 0.3s ease;
+}
+
+.card:hover .card-body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* Sección de bienvenida */
+.container {
+  max-width: 1200px;
+}
+
+/* Imágenes responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-fluid {
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.img-fluid:hover {
+  transform: scale(1.02);
+}
+
+/* Footer mejorado */
+footer {
+  background: #131921 !important;
+  margin-top: auto;
+}
+
+footer a {
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #00bcd4 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .carousel-slide {
+    min-height: 400px;
+  }
+
+  .carousel-slide h1 {
+    font-size: 2rem !important;
+  }
+
+  .carousel-slide p {
+    font-size: 1rem !important;
+  }
+
+  .display-5 {
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-slide {
+    min-height: 350px;
+  }
+
+  .carousel-slide h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .btn-info {
+    padding: 0.4rem 1rem !important;
+    font-size: 0.9rem;
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading states y transiciones */
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Utilidades adicionales */
+.shadow-custom {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #0061ff 0%, #60efff 100%);
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
 }

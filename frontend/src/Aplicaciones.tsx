@@ -39,8 +39,8 @@ const Aplicaciones = () => {
   ];
 
   return (
-    <div className="py-5">
-      <div className="container">
+    <div className="py-5 px-4">
+      <div className="container-fluid">
         {/* Header */}
         <div className="text-center mb-5">
           <h1 className="display-4 fw-bold mb-3">Aplicaciones de la IA</h1>
@@ -51,7 +51,7 @@ const Aplicaciones = () => {
 
         {/* Intro */}
         <div className="row mb-5">
-          <div className="col-lg-8 mx-auto">
+          <div className="col-lg-10 col-xl-8 mx-auto">
             <div className="alert alert-info border-0" role="alert">
               <h5 className="alert-heading fw-bold">🌟 Impacto Global</h5>
               <p className="mb-0">
@@ -64,7 +64,7 @@ const Aplicaciones = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="row g-4">
+        <div className="row g-4 px-lg-5">
           {aplicaciones.map((app, index) => (
             <div key={index} className="col-md-6 col-lg-4">
               <div className="card h-100 border-0 shadow-sm hover-card">
@@ -95,8 +95,8 @@ const Aplicaciones = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="row mt-5">
-          <div className="col-lg-8 mx-auto">
+        <div className="row mt-5 px-lg-5">
+          <div className="col-lg-10 col-xl-8 mx-auto">
             <div className="card bg-primary text-white border-0 shadow">
               <div className="card-body p-5 text-center">
                 <h3 className="fw-bold mb-3">¿Quieres aprender más?</h3>
