@@ -1,0 +1,58 @@
+/* Navbar estilo Amazon */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #131921; /* Azul oscuro tipo Amazon */
+  color: white;
+  padding: 10px 20px;
+  position: fixed; /* Fijo arriba */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+}
+
+.nav-links button {
+  background: #00bcd4; /* Botón celeste */
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.nav-links button:hover {
+  background: #0097a7;
+}
+
+/* Para evitar que el contenido quede oculto debajo del navbar */
+main {
+  padding: 120px 20px 20px; 
+  text-align: center;
+}
